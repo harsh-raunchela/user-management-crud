@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delta — Edit user</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <a href="/" class="brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6 C21 6 21.6 6.6 22 7.4 L34.5 30.6 C35.3 32.1 34.2 34 32.4 34 H7.6 C5.8 34 4.7 32.1 5.5 30.6 L18 7.4 C18.4 6.6 19 6 20 6 Z"
+            stroke="#241F1A" stroke-width="2.4" stroke-linejoin="round" fill="#FFC93C"/>
+        </svg>
+        ADDA
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/user">People</a>
+      </nav>
+    </header>
+
+    <div class="card form-card">
+      <div class="identity-strip">
+        <div class="avatar" style="background:#A9C9FF"><%= (user.username || "?").trim().charAt(0).toUpperCase() %></div>
+        <div>
+          <h2 class="form-title" style="font-size:24px;">Editing <%= user.username %></h2>
+          <div class="user-email"><%= user.email %></div>
+        </div>
+      </div>
+
+      <form method="post" action="/user/<%= user.id %>?_method=PATCH">
+        <div class="field">
+          <label for="username">Username</label>
+          <textarea id="username" name="username" rows="2"><%= user.username %></textarea>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter password to confirm" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Save changes
+          </button>
+          <a href="/user" class="btn btn-ghost">Cancel</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>

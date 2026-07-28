@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delta — All users</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <a href="/" class="brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6 C21 6 21.6 6.6 22 7.4 L34.5 30.6 C35.3 32.1 34.2 34 32.4 34 H7.6 C5.8 34 4.7 32.1 5.5 30.6 L18 7.4 C18.4 6.6 19 6 20 6 Z"
+            stroke="#241F1A" stroke-width="2.4" stroke-linejoin="round" fill="#FFC93C"/>
+        </svg>
+        ADDA
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/user">People</a>
+      </nav>
+    </header>
+
+    <div class="toolbar">
+      <div class="section-heading">
+        <h2>Everyone here</h2>
+      </div>
+      <div class="toolbar-actions">
+        <a href="/user/new" class="btn btn-primary btn-sm">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          Add someone
+        </a>
+        <a href="/user/delete" class="btn btn-outline btn-sm">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-8 0 1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Remove someone
+        </a>
+      </div>
+    </div>
+
+    <% if (users.length === 0) { %>
+      <div class="empty-state card">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#241F1A" stroke-width="2"/><path d="M8.5 15c1-1.3 2.2-2 3.5-2s2.5.7 3.5 2M9 10h.01M15 10h.01" stroke="#241F1A" stroke-width="2" stroke-linecap="round"/></svg>
+        <p>Nobody's here yet. Be the first to add someone.</p>
+        <a href="/user/new" class="btn btn-primary btn-sm">Add someone</a>
+      </div>
+    <% } else { %>
+      <%
+        const swatches = ["#FFC93C", "#FF9E7D", "#8FD9C4", "#A9C9FF", "#FFB6C9"];
+      %>
+      <div class="user-grid">
+        <% users.forEach(function(user, i){ %>
+          <% const initial = (user.username || "?").trim().charAt(0).toUpperCase(); %>
+          <article class="user-card">
+            <div class="avatar" style="background-color: <%= swatches[i % swatches.length] %>">
+              <%= initial %>
+            </div>
+            <div class="user-name"><%= user.username %></div>
+            <div class="user-email"><%= user.email %></div>
+            <div class="user-id mono">#<%= user.id %></div>
+            <div class="user-card-footer">
+              <a href="/user/<%= user.id %>/edit" class="btn btn-outline btn-sm">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 20l1-4 11-11 3 3-11 11-4 1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                Edit
+              </a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+
+  </div>
+</body>
+</html>

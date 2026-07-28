@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delta — Remove someone</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <a href="/" class="brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6 C21 6 21.6 6.6 22 7.4 L34.5 30.6 C35.3 32.1 34.2 34 32.4 34 H7.6 C5.8 34 4.7 32.1 5.5 30.6 L18 7.4 C18.4 6.6 19 6 20 6 Z"
+            stroke="#241F1A" stroke-width="2.4" stroke-linejoin="round" fill="#FFC93C"/>
+        </svg>
+        ADDA
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/user">People</a>
+      </nav>
+    </header>
+
+    <div class="card form-card">
+      <h2 class="form-title">Say goodbye</h2>
+
+      <div class="warning-box">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 21.5 20h-19L12 3.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>This removes the account for good. Double-check the email before continuing.</span>
+      </div>
+
+      <form method="post" action="/user?_method=DELETE">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Confirm password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-danger">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7h14M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-8 0 1 13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1l1-13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Delete account
+          </button>
+          <a href="/user" class="btn btn-ghost">Never mind</a>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>
