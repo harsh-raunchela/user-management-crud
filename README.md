@@ -4,23 +4,6 @@ A full-stack **CRUD (Create, Read, Update, Delete)** web application built using
 
 This project was built to practice **Database Management Systems (DBMS)** concepts along with backend development using Express and MySQL.
 
----
-
-## 📸 Preview
-
-> Add screenshots of your application here.
-
-Example:
-
-```
-Home Page
-Users Page
-Add User
-Edit User
-Delete User
-```
-
----
 
 ## ✨ Features
 
@@ -217,7 +200,7 @@ http://localhost:8080
 **Harsh Raunchela**
 
 * GitHub: https://github.com/harsh-raunchela
-* LinkedIn: 
+* LinkedIn: https://www.linkedin.com/posts/harsh-raunchela_webdevelopment-nodejs-mysql-ugcPost-7488213492659810304-KT4T/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFiYrkUBC8WDHAGmQCw-99Dm7Yp7x1bPHkg
 
 ---
 
